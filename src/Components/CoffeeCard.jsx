@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
 
@@ -5,6 +7,34 @@ const CoffeeCard = ({ coffee }) => {
 
     const handDelete = _id =>{
         console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+              fetch(`http://localhost:5000/coffee/${_id}`,{
+                method: 'DELETE',
+                
+              })
+              .then(res =>res.json())
+              .then(data=>{
+                console.log(data);
+                if(data.deletedCount>0){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your Coffee has been deleted.",
+                        icon: "success"
+                      });
+                }
+              })
+            }
+          });
 
     }
 
@@ -21,7 +51,7 @@ const CoffeeCard = ({ coffee }) => {
                 </div>
                 <div className="flex flex-col gap-2">
                     <button className="btn w-16 btn-primary">View</button>
-                    <button className="btn w-16 btn-warning">Edit</button>
+                    <Link to={`update-coffee/${_id}`}><button className="btn w-16 btn-warning">Edit</button></Link>
                     <button onClick={() =>handDelete(_id)} className="btn w-16 btn-error">X</button>
                 </div>
             </div>

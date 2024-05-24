@@ -33,7 +33,7 @@ const AddCoffee = () => {
                 if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'User added Successfully',
+                        text: 'Coffee added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                       })
@@ -104,7 +104,7 @@ const AddCoffee = () => {
                     </div>
                 </div>
 
-                <input className='btn btn-block text-white bg-slate-500 hover:text-black hover:duration-1000' type='submit' value='Add Coffee'></input>
+                <input className='btn btn-block text-white bg-slate-500 hover:text-black hover:duration-1000' type='submit' defaultValue='Add Coffee'></input>
             </form>
         </div>
     );
