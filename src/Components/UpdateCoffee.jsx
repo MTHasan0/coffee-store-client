@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Header from './Header';
 
 const UpdateCoffee = () => {
 
@@ -39,77 +40,76 @@ const UpdateCoffee = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-
                 }
-                
             })
-
-
-
     }
 
     return (
-        <div className='flex justify-center items-center '>
+        <div>
+        <Header></Header>
+            <div className='flex justify-center items-center '>
 
-            <form onSubmit={handleUpdateCoffee} className='bg-red-50 p-10 w-[50%] space-y-4'>
-                <p className='text-3xl font-bold text-center p-5'>Update your Coffee! <span className='text-purple-600 font-bold'> {name}</span></p>
-                <div className='flex gap-4  '>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
 
-                            <input type="text" name='name' className="grow w-full" placeholder="Coffee name" value={name} />
-                        </label>
+                <form onSubmit={handleUpdateCoffee} className='bg-red-50 p-10 w-[50%] space-y-4'>
+                    <p className='text-3xl font-bold text-center p-5'>Update your Coffee! <span className='text-purple-600 font-bold'> {name}</span></p>
+                    <div className='flex gap-4  '>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
+
+                                <input type="text" name='name' className="grow w-full" placeholder="Coffee name" value={name} />
+                            </label>
+                        </div>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
+
+
+                                <input type="text" name='quantity' className="grow w-full" placeholder="Available quantity" defaultValue={quantity} />
+                            </label>
+                        </div>
                     </div>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
+                    <div className='flex gap-4  '>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
+
+                                <input type="text" name='supplier' className="grow" placeholder="Supplier Name" defaultValue={supplier} />
+                            </label>
+                        </div>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
 
 
-                            <input type="text" name='quantity' className="grow w-full" placeholder="Available quantity" defaultValue={quantity} />
-                        </label>
+                                <input type="text" name='taste' className="grow" placeholder="Taste" defaultValue={taste} />
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div className='flex gap-4  '>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
+                    <div className='flex gap-4  '>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
 
-                            <input type="text" name='supplier' className="grow" placeholder="Supplier Name" defaultValue={supplier} />
-                        </label>
+                                <input type="text" name='category' className="grow" placeholder="Category" defaultValue={category} />
+                            </label>
+                        </div>
+                        <div className='w-full'>
+                            <label className="input input-bordered flex items-center gap-2 w-full">
+
+
+                                <input type="text" name='details' className="grow" placeholder="Details" defaultValue={details} />
+                            </label>
+                        </div>
                     </div>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
+                    <div className='justify-center items-center'>
+                        <div className='w-full '>
+                            <label className="input input-bordered flex items-center gap-2">
 
 
-                            <input type="text" name='taste' className="grow" placeholder="Taste" defaultValue={taste} />
-                        </label>
+                                <input type="text" name='photo' className="grow " placeholder="Photo URL" defaultValue={photo} />
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div className='flex gap-4  '>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
 
-                            <input type="text" name='category' className="grow" placeholder="Category" defaultValue={category} />
-                        </label>
-                    </div>
-                    <div className='w-full'>
-                        <label className="input input-bordered flex items-center gap-2 w-full">
-
-
-                            <input type="text" name='details' className="grow" placeholder="Details" defaultValue={details} />
-                        </label>
-                    </div>
-                </div>
-                <div className='justify-center items-center'>
-                    <div className='w-full '>
-                        <label className="input input-bordered flex items-center gap-2">
-
-
-                            <input type="text" name='photo' className="grow " placeholder="Photo URL" defaultValue={photo} />
-                        </label>
-                    </div>
-                </div>
-
-                <input className='btn btn-block text-white bg-slate-500 hover:text-black hover:duration-1000' type='submit' value='Update Coffee'></input>
-            </form>
+                    <input className='btn btn-block text-white bg-slate-500 hover:text-black hover:duration-1000' type='submit' value='Update Coffee'></input>
+                </form>
+            </div>
         </div>
     );
 };
